@@ -3,7 +3,6 @@
 include __DIR__ . '/vendor/autoload.php';
 
 use Discord\Discord;
-use Discord\WebSockets\Intents;
 use Service\Poster;
 use Symfony\Component\Dotenv\Dotenv;
 
@@ -13,14 +12,12 @@ $dotenv
     ->usePutenv()
     ->load(__DIR__ . '/.env');
 
-// Create a new Discord instance
-$discord = new Discord([
-    'token' => getenv('DISCORD_TOKEN'),
-    'intents' => Intents::getDefaultIntents() | Intents::MESSAGE_CONTENT,
-]);
+// Include the container setup
+$containerBuilder = include __DIR__ . '/bootstrap.php';
 
-// Create an instance of the Poster service
-$poster = new Poster($discord);
+// Get the Poster service from the container
+$discord = $containerBuilder->get(Discord::class);
+$poster = $containerBuilder->get(Poster::class);
 
 // Initialize the bot
 $discord->on('init', [$poster, 'post']);
