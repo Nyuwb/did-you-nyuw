@@ -1,5 +1,20 @@
 {
+    "name": "nyuwb/did-you-nyuw",
+    "description": "",
+    "keywords": ["bot"],
+    "type": "bot",
+    "authors": [
+        {
+            "name": "Fabien Ehrlich",
+            "email": "fabien@nyuw.dev",
+            "homepage": "https://nyuw.dev"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"DidYouNyuw\\": "src/DidYouNyuw"}
+    },
     "require": {
+        "php": ">=8.4",
         "team-reflex/discord-php": "^10.3",
         "symfony/dotenv": "^7.2"
     },
