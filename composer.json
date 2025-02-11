@@ -11,7 +11,7 @@
         }
     ],
     "autoload": {
-        "psr-4": {"DidYouNyuw\\": "src/DidYouNyuw"}
+        "psr-4": { "": "src/" }
     },
     "require": {
         "php": ">=8.4",

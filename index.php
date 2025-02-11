@@ -2,9 +2,9 @@
 
 include __DIR__ . '/vendor/autoload.php';
 
-use DidYouNyuw\Poster;
 use Discord\Discord;
 use Discord\WebSockets\Intents;
+use Service\Poster;
 use Symfony\Component\Dotenv\Dotenv;
 
 // Load environment variables

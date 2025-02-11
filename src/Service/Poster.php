@@ -1,6 +1,6 @@
 <?php
 
-namespace DidYouNyuw;
+namespace Service;
 
 use Discord\Builders\MessageBuilder;
 use Discord\Discord;
