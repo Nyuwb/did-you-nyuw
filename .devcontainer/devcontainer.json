@@ -1,0 +1,59 @@
+{
+    "name": "discord-bot",
+    "workspaceFolder": "/app",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "ALPINE_VERSION": "3.21",
+            "PHP_VERSION": "8.4.3",
+            "XDEBUG_VERSION": "3.4.1"
+        },
+        "options": [ 
+            "--add-host=host.docker.internal:host-gateway"
+        ]
+    },
+    "features": {
+        "ghcr.io/devcontainers-extra/features/composer:1": {
+            "version": "2.8.5"
+        }
+    },
+    "postCreateCommand": "bash -i .devcontainer/postCreateCommand.sh",
+    "containerEnv": {
+        "XDEBUG_CONFIG": "client_port=9009 client_host=localhost log=/tmp/xdebug_remote.log",
+        "XDEBUG_MODE": "debug,develop,coverage"
+    },
+    "mounts": [
+        "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached",
+        "source=${localWorkspaceFolder},target=/app/,type=bind,consistency=cached"
+    ],
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.profiles.linux": {
+                    "zsh": {
+                        "path": "/bin/bash"
+                    }
+                }
+            },
+            "extensions": [
+                "EditorConfig.EditorConfig",
+                "raathigeshan.fabulous",
+                "mhutchie.git-graph",
+                "vector-of-bool.gitflow",
+                "GitLab.gitlab-workflow",
+                "eamodio.gitlens",
+                "docsmsft.docs-yaml",
+                "xdebug.php-debug",
+                "bmewburn.vscode-intelephense-client",
+                "MehediDracula.php-namespace-resolver",
+                "shevaua.phpcs",
+                "kokororin.vscode-phpfmt",
+                "recca0120.vscode-phpunit",
+                "redhat.vscode-yaml",
+                "neilbrayfield.php-docblocker",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    }
+}
