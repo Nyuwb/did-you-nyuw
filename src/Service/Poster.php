@@ -1,6 +1,6 @@
 <?php
 
-namespace Service;
+namespace App\Service;
 
 use Discord\Builders\MessageBuilder;
 use Discord\Discord;
@@ -16,7 +16,7 @@ class Poster
         $this->logger = $discord->getLogger();
     }
 
-    public function post()
+    public function post(): void
     {
         $this->logger->info("Bot is ready!");
 
