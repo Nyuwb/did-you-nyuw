@@ -2,13 +2,8 @@
 
 include __DIR__ . '/vendor/autoload.php';
 
-use App\Service\Poster;
-use Discord\Discord;
+use App\Command\BotStartCommand;
 use Symfony\Component\Console\Application;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Dotenv\Dotenv;
 
 // Create a new console application
@@ -23,12 +18,8 @@ $dotenv
 // Include the container setup
 $containerBuilder = include __DIR__ . '/bootstrap.php';
 
-// Get the Poster service from the container
-$application->register('run')
-    ->setCode(function (InputInterface $input, OutputInterface $output): int {
-
-        return Command::SUCCESS;
-    });
+// Add the commands
+$application->add($containerBuilder->get(BotStartCommand::class));
 
 // $application->add(new GenerateAdminCommand());
 

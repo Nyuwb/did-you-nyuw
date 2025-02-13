@@ -1,6 +1,6 @@
 {
     "name": "discord-bot",
-    "workspaceFolder": "/workspaces/did-you-nyuw",
+    "workspaceFolder": "/workspaces/qotd-bot",
     "build": {
         "dockerfile": "Dockerfile",
         "args": {
@@ -24,7 +24,7 @@
     },
     "mounts": [
         "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached",
-        "source=${localWorkspaceFolder},target=/workspaces/did-you-nyuw,type=bind,consistency=cached"
+        "source=${localWorkspaceFolder},target=/workspaces/qotd-bot,type=bind,consistency=cached"
     ],
     "customizations": {
         "vscode": {
