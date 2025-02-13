@@ -18,12 +18,8 @@ class Poster
 
     public function post(): void
     {
-        $this->logger->info("Bot is ready!");
-
         // Get the guilds the bot is connected to
         foreach ($this->discord->guilds as $guild) {
-            $this->logger->info("Connected to guild: {$guild->name} (ID: {$guild->id})");
-
             // Find the bot channel in the guild
             $channel = $guild
                 ->channels
