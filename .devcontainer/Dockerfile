@@ -17,6 +17,7 @@ RUN apk update && \
         icu-dev \
         libzip-dev \
         linux-headers \
+        sqlite \
         zip \
         zlib-dev \
         unzip
