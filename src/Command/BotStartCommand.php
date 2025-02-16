@@ -16,7 +16,6 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 class BotStartCommand extends Command
 {
     public function __construct(
-        #[Autowire(service: Discord::class, lazy: true)]
         private Discord $discord
     ) {
         parent::__construct();
