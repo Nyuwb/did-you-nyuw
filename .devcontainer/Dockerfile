@@ -6,9 +6,6 @@ ARG PHP_VERSION
 ########################
 FROM php:${PHP_VERSION}-alpine${ALPINE_VERSION} AS base-php
 
-# Defining app path
-WORKDIR /app
-
 # Package installation
 RUN apk update && \
     apk add --no-cache \
